@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+namespace: 
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+  labels:
+    app: weatheradmin
+  name: weatheradmin
+  #namespace: devops-garage
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: weatheradmin
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: weatheradmin
+      name: weatheradmin
+    spec:
+      containers:
+      - name: weatheradmin
+        image: jyonarra/weatheradmin:1.0
+        resources:
+          limits:
+            cpu: "300m"
+            memory: "800Mi"
+          requests:
+            cpu: "200m"
+            memory: "600Mi"
+        imagePullPolicy: Always
+                        #IFNotPresent
+
+
+#  limits.cpu: 480m
+#     limits.memory: 1920Mi
+#     persistentvolumeclaims: '1'
+#     requests.cpu: 384m
+#     requests.memory: 1536Mi
+#   used:
+

@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+namespace: 
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+  labels:
+    app: spark-hello-world
+  name: spark-hello-world
+  #namespace: devops-garage
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spark-hello-world
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: spark-hello-world
+      name: spark-hello-world
+    spec:
+      containers:
+      - name: spark-hello-world
+        image: jyonarra/spark-hello-world-jboss:v1
+        resources:
+          limits:
+            cpu: "300m"
+            memory: "800Mi"
+          requests:
+            cpu: "200m"
+            memory: "600Mi"
+        imagePullPolicy: Always
+                        #IFNotPresent
+
+
+#  limits.cpu: 480m
+#     limits.memory: 1920Mi
+#     persistentvolumeclaims: '1'
+#     requests.cpu: 384m
+#     requests.memory: 1536Mi
+#   used:
+
