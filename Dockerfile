@@ -7,3 +7,5 @@ USER jboss
 COPY --chown=jboss:jboss target/api.war /opt/jboss/wildfly/standalone/deployments
 
 #ADD sparkjava-hello-world-1.0.war /opt/jboss/wildfly/standalone/deployments
+# test docker
+# welcome to docker
